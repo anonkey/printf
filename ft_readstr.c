@@ -17,6 +17,6 @@ int		ft_printf_str(t_printf_arg *arg, char *format, va_list *args_p)
     if (arg->prec == -1)
         return (ft_putstr(str));
     else
-        return (ft_putstr_len(str, arg->prec));
+        return (ft_putstr_len(str, arg->prec, arg->width, ' '));
     return (0);
 }

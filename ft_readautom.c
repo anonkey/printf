@@ -52,11 +52,9 @@ int	ft_readtype(t_printf_arg *arg_p, int *index_p, char *format)
 		&& (g_parsefn_tab[arg_p->state][charind]))
 	{
 	    arg_p->act = format[*index_p];
-//	    printf("%c act\n\n", arg_p->act);
 	    if (-1 == g_parsefn_tab[arg_p->state][charind](arg_p))
 		return (0);
 	    ++*index_p;
-	//    printf("%c act %d %d %d %d\n\n", format[*index_p], ft_getpars_fnind(format[*index_p]), arg_p->state, arg_p->len, arg_p->type);
 	}
 	return (arg_p->state == STATE_END ? 0 : -1);
 }

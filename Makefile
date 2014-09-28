@@ -11,7 +11,7 @@ else
 endif
 NAME = printfgit
 INCDIR = ./libft/headers
-LIBDIR = ./libft/
+LIBDIR = ./libft
 LIBNAME = libft
 LIB = -lft
 SRC = ft_printfn.c \
@@ -39,9 +39,9 @@ gcc: $(OBJ)
 	gcc $(CFLAGS) $(OBJ) -o $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -L$(LIBDIR) $(LIB) $(OBJ) -o $(NAME) -I $(INCDIR)
+	$(CC) $(CFLAGS) -I $(INCDIR) -L $(LIBDIR) -lft $(OBJ) -o $(NAME)
 %.o: %.c
-	$(CC) -I$(LIBDIR) $(CFLAGS) -c $< -o $@ -I $(INCDIR)
+	$(CC) -I $(INCDIR) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

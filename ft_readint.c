@@ -23,14 +23,12 @@ int		ft_printf_integer(t_printf_arg *arg, char *format, va_list *args_p)
     else if (arg->len == PRINTF_ZLEN)
 	res = (long long)va_arg(*args_p, size_t);
     if (arg->type == 'd' || arg->type == 'i')
-    {
-	size = ft_putnbr_ll(res, (arg->flags & (1 << ft_strchind(PRINTF_FLAGS, '+')) ? 1 : 0));
-    }
-    else if (arg->type == 'x' || arg->type == 'x')
-        size = ft_putnbrhex(res, arg->width, arg->type == 'x' ? 1 : 0);
+	size = ft_putnbr_len(res, (arg->flags & (1 << ft_strchind(PRINTF_FLAGS, '+')) ? 1 : 0), arg->width, ' ');
+    else if (arg->type == 'x' || arg->type == 'X')
+        size = ft_putnbrhex(res, arg->width, arg->type == 'X' ? 1 : 0);
     else if (arg->type == 'o')
 	size = ft_putnbr_oct((unsigned long long)res, arg->width);
     else if (arg->type == 'u')
-	size = ft_putnbr_ull((unsigned long long)res);
+	size = ft_putnbr_ulen(res, arg->width, ' ');
     return (size);
 }
