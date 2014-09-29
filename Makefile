@@ -14,7 +14,8 @@ INCDIR = ./libft/headers
 LIBDIR = ./libft
 LIBNAME = libft
 LIB = -lft
-SRC = ft_printfn.c \
+SRC = ft_printf.c \
+ft_printfn.c \
 ft_readarg.c \
 ft_readautom.c \
 ft_readchar.c \

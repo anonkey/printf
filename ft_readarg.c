@@ -1,13 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_readarg.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/09/29 19:29:23 by tseguier          #+#    #+#             */
+/*   Updated: 2014/09/29 19:30:29 by tseguier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdarg.h>
 #include "libft.h"
 #include "ft_readarg.h"
 #include "ft_readformat.h"
 
-
 char	ft_readflags(int *index_p, char *format)
 {
-	int	pos;
+	int		pos;
 	char	flag;
 
 	flag = '\0';
@@ -19,9 +30,9 @@ char	ft_readflags(int *index_p, char *format)
 	return (flag);
 }
 
-int	ft_readwidth(int *index_p, char *format)
+int		ft_readwidth(int *index_p, char *format)
 {
-	int	width;
+	int		width;
 
 	width = 0;
 	if (format[*index_p] >= '1' && format[*index_p] <= '9')
@@ -36,9 +47,9 @@ int	ft_readwidth(int *index_p, char *format)
 	return (width);
 }
 
-int	ft_readprec(int *index_p, char *format)
+int		ft_readprec(int *index_p, char *format)
 {
-	int	prec;
+	int		prec;
 
 	prec = -1;
 	if (format[*index_p] == '.')

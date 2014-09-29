@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readfloat_len.c                                 :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/09/29 19:15:17 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:15:26 by tseguier         ###   ########.fr       */
+/*   Created: 2014/09/29 19:31:48 by tseguier          #+#    #+#             */
+/*   Updated: 2014/09/29 19:33:12 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_readformat.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+#include <stdarg.h>
+#include "ft_readarg.h"
 
-int		ft_dllen(t_printf_arg *arg)
-{
-	arg->len = PRINTF_DLLEN;
-	arg->state = STATE_DLLEN;
-	return (0);
-}
+int		ft_printarg(t_printf_arg arg, char *format, va_list *args_p);
+
+int		ft_writearg(int *index_p, char *format, va_list *args_p);
+
+int		ft_printf(char *format, ...);
+
+#endif /* !FT_PRINTF_H */
