@@ -6,10 +6,11 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 21:30:56 by tseguier          #+#    #+#             */
-/*   Updated: 2014/07/01 19:07:38 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/29 21:03:09 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
+
+#include <stdlib.h>
 
 void	ft_bzero(void *s, size_t n)
 {

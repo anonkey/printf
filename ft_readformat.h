@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:04:43 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:21:33 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/29 21:19:42 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include "libft.h"
+# define NULLPTR_STR "0x0"
 # define DFL_FLOAT_PREC 6
 # define PRINTF_FLAGS "#0- +"
 

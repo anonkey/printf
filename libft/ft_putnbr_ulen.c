@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_ulen.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/09/29 20:26:54 by tseguier          #+#    #+#             */
+/*   Updated: 2014/09/29 20:44:44 by tseguier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_putnbr_ulen(unsigned long long nbr, int width, char fill)
+int		ft_putnbr_ulen(unsigned long long nbr, int width, char fill)
 {
-	int		size;
+	int			size;
 	char		strout[MAX_LLSIZE + 1];
 	char		*act;
 
-// long max
 	size = 1;
 	act = strout + MAX_LLSIZE;
 	*act-- = '\0';
@@ -19,7 +30,7 @@ int	ft_putnbr_ulen(unsigned long long nbr, int width, char fill)
 	}
 	*act = '0' + nbr;
 	while (++size <= width)
-	    *--act = fill;
+		*--act = fill;
 	ft_putstr(act);
 	return (size - 1);
 }

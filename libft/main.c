@@ -13,12 +13,13 @@
 #include <stdlib.h>
 #include "headers/libft.h"
 
-int		ft_putnbr_len(long long nbr, int len, char fill);
 int		main(void)
 {
-	long long		nb;
-
-	nb = 123456789;
-	ft_putnbr_len(nb, 5, '|');
+	ft_putdouble(-3.1213442331, 6, 1);
+	ft_putdouble(3.12, 5, 0);
+	ft_putdouble(-46578983.42331, 8, 0);
+	ft_putdouble(897567687983.1213442331, 20, 1);
+	ft_putdouble(-67890863.1213442331, 1, 1);
+	ft_putdouble(123498576783.1213442331, 0, 0);
 	return (1);
 }

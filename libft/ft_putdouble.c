@@ -1,57 +1,65 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putdouble.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/09/29 21:01:15 by tseguier          #+#    #+#             */
+/*   Updated: 2014/09/29 21:11:17 by tseguier         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include "libft.h"
 
-//TODO: width specifier,fill char
-
-static int		ft_printradix(double nb, int prec)
+static int	ft_printradix(double nb, int prec, char *buf)
 {
 	char	digit;
 	int		size;
 
 	size = prec + 1;
-	write(1, ".", 1);
+	*buf++ = RADIX_CHAR;
 	while (prec > 0)
 	{
 		if (nb != 0)
 		{
-			nb *= 10;
-			digit = (char)nb;
+			digit = (char)(nb *= 10);
 			nb -= (double)digit;
-			ft_putchar(digit + '0');
+			*buf++ = digit + '0';
 		}
 		else
-			ft_putchar('0');
+			*buf++ = '0';
 		--prec;
 	}
 	return (size);
 }
 
-int		ft_putdouble(double nb, int prec, int sign)
+int			ft_putdouble(double nb, int prec, int sign)
 {
-	int		size;
-	double	mask;
-	char	digit;
+	char		buf[MAX_DBLSIZE];
+	int			size;
+	double		mask;
+	char		digit;
 
 	size = 0;
 	mask = 1.0;
 	if (nb < 0 || sign)
 	{
+		buf[size++] = nb < 0 ? '-' : '+';
 		if (nb < 0)
-		    nb = 0 - nb;
-		ft_putchar(nb < 0 ? '-' : '+');
-		++size;
+			nb = 0 - nb;
 	}
 	while (nb / mask > 10.0)
 		mask *= 10.0;
 	while (mask >= 1.0)
 	{
-		digit = (char)(nb / mask);
-		++size;
-		nb -= mask * (double)digit;
+		nb -= mask * (double)(digit = (char)(nb / mask));
 		mask /= 10.0;
-		ft_putchar(digit + '0');
+		buf[size++] = digit + '0';
 	}
 	if (prec > 0)
-		size += ft_printradix(nb, prec);
-	return (size);
+		size += ft_printradix(nb, prec, buf + size);
+	buf[size] = '\0';
+	return (write(1, buf, size), ft_putchar('\n'));
 }

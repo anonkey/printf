@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/01 04:33:12 by tseguier          #+#    #+#             */
-/*   Updated: 2014/08/01 04:35:47 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/29 20:26:02 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 static const char	*g_hexbase = "0123456789abcdef";
 static const char	*g_hexbase_maj = "0123456789ABCDEF";
 
-int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj)
+int			ft_putnbrhex(unsigned long long nb, unsigned int len, int maj)
 {
 	char	nb_act;
-	int	size;
+	int		size;
 
 	nb_act = nb % 16;
 	size = 1;
@@ -28,7 +28,7 @@ int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj)
 	{
 		size += len - 1;
 		while (--len > 0)
-		    ft_putchar('0');
+			ft_putchar('0');
 	}
 	if (maj)
 		ft_putchar(g_hexbase_maj[(int)nb_act]);

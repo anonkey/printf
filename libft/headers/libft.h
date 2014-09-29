@@ -6,42 +6,50 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/21 19:21:16 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/25 22:34:26 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/29 20:23:39 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <string.h>
+# include <stdlib.h>
+# include <float.h>
 # include "ft_ldcd_cell.h"
 # include "ft_btree.h"
 # include "libft_struct.h"
 # define BUFF_SIZE 100000
-#define MAX_LLSIZE 64
+# define MAX_LLSIZE 64
+# define MAX_ULLSIZE MAX_LLSIZE
+# define MAX_DBLSIZE (3 + (DBL_MANT_DIG) - (DBL_MIN_EXP))
+# define RADIX_CHAR '.'
+# define EXPONENT_CHAR 'e'
+
 /*
 ** Affichage
 */
 void		*ft_print_memory(void *addr, unsigned int size);
-int		ft_putnbrhex(unsigned long long nb, unsigned int len, int maj);
-int		ft_putnbr_oct(unsigned long long nb, unsigned int len);
-int		ft_putchar(char c);
-int		ft_putstr(char const *s);
-int		ft_putendl(char const *s);
-int		ft_putnbr(int n);
+int			ft_putnbrhex(unsigned long long nb, unsigned int len, int maj);
+int			ft_putnbr_oct(unsigned long long nb, unsigned int len);
+int			ft_putchar(char c);
+int			ft_putstr(char const *s);
+int			ft_putendl(char const *s);
+int			ft_putnbr(int n);
 void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char const *s, int fd);
 void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putnbr_base(int nbr, char *base);
-int		ft_putnbr_ll(long long nbr, int sign);
-int		ft_putnbr_len(long long nbr, int sign, int width, char fill);
-int		ft_putnbr_ull(unsigned long long nbr);
-int		ft_putnbr_ulen(unsigned long long nbr, int width, char fill);
-int		ft_putstr_len(char const *s, unsigned long len, unsigned long max, char fill);
-int		ft_putdouble(double nb, int prec, int sign);
-int		ft_putldouble(long double nb, int prec, int sign);
-int		ft_putdouble_sci(double nb, int prec);
-int		ft_putldouble_sci(long double nb, int prec);
+int			ft_putnbr_ll(long long nbr, int sign);
+int			ft_putnbr_len(long long nbr, int sign, int width, char fill);
+int			ft_putnbr_ull(unsigned long long nbr);
+int			ft_putnbr_ulen(unsigned long long nbr, int width, char fill);
+int			ft_putstr_len(char const *s, unsigned long len, unsigned long max,
+							char fill);
+int			ft_putdouble(double nb, int prec, int sign);
+int			ft_putldouble(long double nb, int prec, int sign);
+int			ft_putdouble_sci(double nb, int prec);
+int			ft_putldouble_sci(long double nb, int prec);
+
 /*
 ** Memory
 */
@@ -55,6 +63,7 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memalloc(size_t size);
 void		ft_memdel(void **ap);
 int			ft_memrev(void *mem, size_t len);
+
 /*
 ** Chars
 */
@@ -65,6 +74,7 @@ int			ft_isascii(int c);
 int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+
 /*
 ** Strings
 */

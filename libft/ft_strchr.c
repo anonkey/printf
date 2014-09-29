@@ -6,9 +6,10 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 23:46:29 by tseguier          #+#    #+#             */
-/*   Updated: 2014/07/02 15:35:17 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/09/29 20:24:40 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <string.h>
 
 char	*ft_strchr(const char *s, int c)
