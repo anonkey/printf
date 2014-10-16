@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:01:54 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:02:31 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/14 13:47:16 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 # include <stdarg.h>
 # include "libft.h"
 # include "ft_readformat.h"
+# include "ft_printfarg.h"
 
 # define ULONG unsigned long
-# define NB_PRINT_FN 5
-
-t_printfn	*ft_getprint_fn(char c);
 
 char		ft_readflags(int *index_p, char *format);
 

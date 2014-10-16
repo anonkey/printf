@@ -6,11 +6,28 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:16:06 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:19:19 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 03:00:12 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_readformat.h"
+
+#define INTFUNCS 0
+#define SIZFUNCS 1
+
+static const void*		g_printtab[2][3] =
+{
+	{
+		&ft_putnbr_f,
+		&ft_putnbr_base_f,
+		&ft_putnbr_ull_f
+	},
+	{
+		&ft_putnbr_f,
+		&ft_putsize_base_f,
+		&ft_putnbr_ull_f
+	}
+};
 
 int		ft_inttype(t_printf_arg *arg)
 {
@@ -21,9 +38,11 @@ int		ft_inttype(t_printf_arg *arg)
 
 int		ft_printf_integer(t_printf_arg *arg, char *format, va_list *args_p)
 {
-	long long	res;
-	int			size;
+	long long		res;
+	int				size;
+	int				printind;
 
+	printind = INTFUNCS;
 	(void)format;
 	size = 0;
 	if (arg->len == 0 || arg->len == PRINTF_HLEN || arg->len == PRINTF_HHLEN)
@@ -33,17 +52,20 @@ int		ft_printf_integer(t_printf_arg *arg, char *format, va_list *args_p)
 	else if (arg->len == PRINTF_LLLEN)
 		res = va_arg(*args_p, long long);
 	else if (arg->len == PRINTF_ZLEN)
+	{
 		res = (long long)va_arg(*args_p, size_t);
+		printind = SIZFUNCS;
+	}
 	if (arg->type == 'd' || arg->type == 'i')
-		size = ft_putnbr_len(res,
-							(arg->flags
-							& (1 << ft_strchind(PRINTF_FLAGS, '+')) ? 1 : 0),
-							arg->width, ' ');
+		size = ((t_print)g_printtab[printind][0])(res, (t_format)arg);
 	else if (arg->type == 'x' || arg->type == 'X')
-		size = ft_putnbrhex(res, arg->width, arg->type == 'X' ? 1 : 0);
+		size = ((t_printbase)g_printtab[printind][1])(res, arg->type == 'X' ?
+				HEXBASE_MAJ : HEXBASE,
+				(t_format)arg);
 	else if (arg->type == 'o')
-		size = ft_putnbr_oct((unsigned long long)res, arg->width);
+		size = ((t_printbase)g_printtab[printind][1])(res, OCTBASE,
+					(t_format)arg);
 	else if (arg->type == 'u')
-		size = ft_putnbr_ulen(res, arg->width, ' ');
+		size = ((t_printu)g_printtab[printind][2])(res, (t_format)arg);
 	return (size);
 }
