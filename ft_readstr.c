@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:11:05 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:12:01 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 09:59:03 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ int		ft_printf_str(t_printf_arg *arg, char *format, va_list *args_p)
 	if (arg->prec == -1)
 		return (ft_putstr(str));
 	else
-		return (ft_putstr_len(str, arg->prec, arg->width, ' '));
+		return (ft_putstr_f(str, (t_format)arg));
 	return (0);
 }

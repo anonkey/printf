@@ -6,10 +6,11 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:25:57 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:26:08 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 10:25:56 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "ft_readformat.h"
 
 int		ft_chartype(t_printf_arg *arg)
@@ -25,7 +26,8 @@ int		ft_printf_char(t_printf_arg *arg, char *format, va_list *args_p)
 
 	(void)format;
 	c = (char)va_arg(*args_p, int);
-	if (arg->flags == 0)
-		return (ft_putchar(c));
-	return (0);
+	if (!arg->output)
+		return (write(arg->fd, &c, 1));
+	*arg->output = c;
+	return (1);
 }
