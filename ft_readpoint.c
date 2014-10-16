@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:12:18 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 21:18:34 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 10:32:36 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int		ft_printf_point(t_printf_arg *arg, char *format, va_list *args_p)
 	res = va_arg(*args_p, void *);
 	if (res)
 	{
-		size = ft_putstr("0x");
-		size += ft_putnbrhex((unsigned long)res, arg->width, 0);
+		arg->flags |= FORMATF_ALT;
+		size = (ft_putnbr_base_f((unsigned long long)res,
+				HEXBASE, (t_format)arg));
 	}
 	else
 		size = ft_putstr(NULLPTR_STR);
