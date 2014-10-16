@@ -1,5 +1,6 @@
 #ifndef FT_PRINTFARG_H
 # include <stdarg.h>
+# include "ft_dynstr.h"
 # define FT_PRINTFARG_H
 # define PRINTF_HLEN 1
 # define PRINTF_HHLEN 2
@@ -20,12 +21,13 @@
 typedef struct		s_printf_arg
 {
 	char			*output;
+	t_dynstr		allocout;
 	int				fd;
 	char			flags;
 	int				width;
 	int				prec;
-	int				len;
 	char			type;
+	int				len;
 	int				state;
 	char			act;
 }					t_printf_arg;

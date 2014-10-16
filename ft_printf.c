@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:31:45 by tseguier          #+#    #+#             */
-/*   Updated: 2014/10/16 21:31:34 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 21:39:05 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		ft_asprintf(char **out_p, char *format, ...)
 		{
 			arg = ft_getarg(&index, format);
 			arg.allocout = output;
-			if (0 > ft_printarg(arg, format, &args));
+			if (0 > ft_printarg(arg, format, &args))
 				return (-3);
 		}
 		else

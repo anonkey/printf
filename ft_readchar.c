@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:25:57 by tseguier          #+#    #+#             */
-/*   Updated: 2014/10/16 10:25:56 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 21:48:16 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ int		ft_printf_char(t_printf_arg *arg, char *format, va_list *args_p)
 
 	(void)format;
 	c = (char)va_arg(*args_p, int);
-	if (!arg->output)
+	if (arg->output)
+		*arg->output = c;
+	else if (arg->allocout)
+		return (ft_dynstradd_len(arg->allocout, &c, 1));
+	else
 		return (write(arg->fd, &c, 1));
-	*arg->output = c;
 	return (1);
 }
