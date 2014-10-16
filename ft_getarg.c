@@ -17,5 +17,7 @@ t_printf_arg	ft_getarg(int *index_p, char *format)
 	else if (-1 == ft_readtype(&arg, index_p, format))
 		arg.state = STATE_ERROR;
 	arg.fd = 1;
+	arg.output = NULL;
+	arg.allocout = NULL;
 	return (arg);
 }
