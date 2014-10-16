@@ -6,7 +6,7 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:16:06 by tseguier          #+#    #+#             */
-/*   Updated: 2014/10/16 03:00:12 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/16 03:45:03 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static const void*		g_printtab[2][3] =
 		&ft_putnbr_ull_f
 	},
 	{
-		&ft_putnbr_f,
+		&ft_putssize_f,
 		&ft_putsize_base_f,
-		&ft_putnbr_ull_f
+		&ft_putsize_f
 	}
 };
 
