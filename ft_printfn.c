@@ -6,11 +6,14 @@
 /*   By: tseguier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/09/29 19:30:42 by tseguier          #+#    #+#             */
-/*   Updated: 2014/09/29 19:31:16 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/14 13:46:28 by garm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_readarg.h"
+#include <stdarg.h>
+#include <stdlib.h>
+#include "ft_printfn.h"
+#include "libft.h"
 
 t_printfn	g_printfn_tab[NB_PRINT_FN] =
 {
